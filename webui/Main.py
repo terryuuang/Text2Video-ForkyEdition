@@ -223,11 +223,9 @@ if not config.app.get("hide_config", False):
         with middle_config_panel:
             st.write(tr("LLM Settings"))
             llm_providers = [
+                "RAP",
                 "OpenAI",
-                "Moonshot",
                 "Azure",
-                "Qwen",
-                "DeepSeek",
                 "Gemini",
                 "Ollama",
                 "G4f",
@@ -236,7 +234,7 @@ if not config.app.get("hide_config", False):
                 "ERNIE",
                 "Pollinations",
             ]
-            saved_llm_provider = config.app.get("llm_provider", "OpenAI").lower()
+            saved_llm_provider = config.app.get("llm_provider", "RAP").lower()
             saved_llm_provider_index = 0
             for i, provider in enumerate(llm_providers):
                 if provider.lower() == saved_llm_provider:
@@ -288,16 +286,6 @@ if not config.app.get("hide_config", False):
                             - **Model Name**: 填寫**有權限**的模型，[點擊查看模型列表](https://platform.openai.com/settings/organization/limits)
                             """
 
-            if llm_provider == "moonshot":
-                if not llm_model_name:
-                    llm_model_name = "moonshot-v1-8k"
-                with llm_helper:
-                    tips = """
-                            ##### Moonshot 配置說明
-                            - **API Key**: [點擊到官網申請](https://platform.moonshot.cn/console/api-keys)
-                            - **Base Url**: 固定為 https://api.moonshot.cn/v1
-                            - **Model Name**: 比如 moonshot-v1-8k，[點擊查看模型列表](https://platform.moonshot.cn/docs/intro#%E6%A8%A1%E5%9E%8B%E5%88%97%E8%A1%A8)
-                            """
             if llm_provider == "oneapi":
                 if not llm_model_name:
                     llm_model_name = (
@@ -310,17 +298,6 @@ if not config.app.get("hide_config", False):
                         - **Base Url**: 填寫 OneAPI 的基礎 URL
                         - **Model Name**: 填寫您要使用的模型名稱，例如 claude-3-5-sonnet-20240620
                         """
-
-            if llm_provider == "qwen":
-                if not llm_model_name:
-                    llm_model_name = "qwen-max"
-                with llm_helper:
-                    tips = """
-                            ##### 通義千問Qwen 配置說明
-                            - **API Key**: [點擊到官網申請](https://dashscope.console.aliyun.com/apiKey)
-                            - **Base Url**: 留空
-                            - **Model Name**: 比如 qwen-max，[點擊查看模型列表](https://help.aliyun.com/zh/dashscope/developer-reference/model-introduction#3ef6d0bcf91wy)
-                            """
 
             if llm_provider == "g4f":
                 if not llm_model_name:
@@ -355,19 +332,6 @@ if not config.app.get("hide_config", False):
                             - **Model Name**: 比如 gemini-2.0-flash
                             """
 
-            if llm_provider == "deepseek":
-                if not llm_model_name:
-                    llm_model_name = "deepseek-chat"
-                if not llm_base_url:
-                    llm_base_url = "https://api.deepseek.com"
-                with llm_helper:
-                    tips = """
-                            ##### DeepSeek 配置說明
-                            - **API Key**: [點擊到官網申請](https://platform.deepseek.com/api_keys)
-                            - **Base Url**: 固定為 https://api.deepseek.com
-                            - **Model Name**: 固定為 deepseek-chat
-                            """
-
             if llm_provider == "ernie":
                 with llm_helper:
                     tips = """
@@ -386,6 +350,19 @@ if not config.app.get("hide_config", False):
                             - **API Key**: Optional - Leave empty for public access
                             - **Base Url**: Default is https://text.pollinations.ai/openai
                             - **Model Name**: Use 'openai-fast' or specify a model name
+                            """
+
+            if llm_provider == "rap":
+                if not llm_model_name:
+                    llm_model_name = "Llama-4-Maverick-17B-128E-Instruct-FP8"
+                if not llm_base_url:
+                    llm_base_url = "https://portal.genai.nchc.org.tw/api/v1"
+                with llm_helper:
+                    tips = """
+                            ##### RAP 配置說明
+                            - **API Key**: 填寫您的 RAP API 密鑰
+                            - **Base Url**: 固定為 https://portal.genai.nchc.org.tw/api/v1
+                            - **Model Name**: 預設為 Llama-4-Maverick-17B-128E-Instruct-FP8
                             """
 
             if tips and config.ui["language"] == "zh":

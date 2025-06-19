@@ -1408,21 +1408,13 @@ def create_subtitle(sub_maker: submaker.SubMaker, text: str, subtitle_file: str)
 
     def formatter(idx: int, start_time: float, end_time: float, sub_text: str) -> str:
         """
-        字幕格式化器
-        :param idx: 字幕索引
-        :param start_time: 開始時間（秒）
-        :param end_time: 結束時間（秒）
-        :param sub_text: 字幕文字
-        :return: 格式化的字幕
+        1
+        00:00:00,000 --> 00:00:02,360
+        跑步是一項簡單易行的運動
         """
-        # 範例輸出
-        # 跑步是一項簡單易行的運動
-        formatter_text = f"""
-{idx}
-{_seconds_to_time(start_time)} --> {_seconds_to_time(end_time)}
-{sub_text}
-"""
-        return formatter_text
+        start_t = mktimestamp(start_time).replace(".", ",")
+        end_t = mktimestamp(end_time).replace(".", ",")
+        return f"{idx}\n{start_t} --> {end_t}\n{sub_text}\n"
 
     start_time = -1.0
     sub_items = []
@@ -1498,9 +1490,20 @@ def get_audio_duration(sub_maker: submaker.SubMaker):
     """
     取得音訊時長
     """
-    if sub_maker and sub_maker.subs:
-        last_sub = sub_maker.subs[-1]
-        return last_sub[0][1] / 10_000_000  # 轉換為秒
+    if sub_maker and hasattr(sub_maker, 'offset') and sub_maker.offset:
+        # 使用 offset 列表獲取最後一個時間段的結束時間
+        last_offset = sub_maker.offset[-1]
+        if len(last_offset) >= 2:
+            return last_offset[1] / 10_000_000  # 轉換為秒
+    elif sub_maker and sub_maker.subs:
+        # 備用方案：如果 subs 中的元素是包含時間信息的結構
+        try:
+            last_sub = sub_maker.subs[-1]
+            if hasattr(last_sub, '__len__') and len(last_sub) > 0:
+                if hasattr(last_sub[0], '__len__') and len(last_sub[0]) > 1:
+                    return last_sub[0][1] / 10_000_000  # 轉換為秒
+        except (IndexError, TypeError):
+            pass
     return 0
 
 

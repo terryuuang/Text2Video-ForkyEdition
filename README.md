@@ -1,5 +1,5 @@
 <div align="center">
-<h1 align="center">MoneyPrinterTurbo 💸</h1>
+<h1 align="center">Text2Video-ForkyEdition 💸</h1>
 
 <p align="center">
   <a href="https://github.com/terryuuang/Text2Video-ForkyEdition/stargazers"><img src="https://img.shields.io/github/stars/terryuuang/Text2Video-ForkyEdition.svg?style=for-the-badge" alt="Stargazers"></a>
@@ -113,7 +113,7 @@
 ## 快速開始 🚀
 
 ### 在 Google Colab 中執行
-免去本機環境配置，點擊直接在 Google Colab 中快速體驗 MoneyPrinterTurbo
+免去本機環境配置，點擊直接在 Google Colab 中快速體驗 Text2Video-ForkyEdition
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/terryuuang/Text2Video-ForkyEdition/blob/main/docs/MoneyPrinterTurbo.ipynb)
 
@@ -148,48 +148,13 @@ git clone https://github.com/terryuuang/Text2Video-ForkyEdition.git
 - 按照 `config.toml` 檔案中的說明，配置好 `pexels_api_keys` 和 `llm_provider`，並根據 llm_provider 對應的服務商，配置相關的
   API Key
 
-### Docker部署 🐳
-
-#### ① 啟動Docker
-
-如果未安裝 Docker，請先安裝 https://www.docker.com/products/docker-desktop/
-
-如果是Windows系統，請參考微軟的文件：
-
-1. https://learn.microsoft.com/zh-cn/windows/wsl/install
-2. https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-containers
-
-```shell
-cd MoneyPrinterTurbo
-docker-compose up
-```
-
-> 注意：最新版的docker安裝時會自動以外掛的形式安裝docker compose，啟動指令調整為docker compose up
-
-#### ② 存取Web介面
-
-開啟瀏覽器，存取 http://0.0.0.0:8501
-
-#### ③ 存取API文件
-
-開啟瀏覽器，存取 http://0.0.0.0:8080/docs 或者 http://0.0.0.0:8080/redoc
-
 ### 手動部署 📦
-
-> 影片教學
-
-- 完整的使用示範：https://v.douyin.com/iFhnwsKY/
-- 如何在Windows上部署：https://v.douyin.com/iFyjoW3M
-
 #### ① 建立虛擬環境
-
-建議使用 [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) 建立 python 虛擬環境
-
 ```shell
 git clone https://github.com/terryuuang/Text2Video-ForkyEdition.git
-cd MoneyPrinterTurbo
-conda create -n MoneyPrinterTurbo python=3.11
-conda activate MoneyPrinterTurbo
+cd Text2Video-ForkyEdition
+python -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -216,7 +181,7 @@ pip install -r requirements.txt
 
 #### ③ 啟動Web介面 🌐
 
-注意需要到 MoneyPrinterTurbo 專案 `根目錄` 下執行以下指令
+注意需要到 Text2Video-ForkyEdition 專案 `根目錄` 下執行以下指令
 
 ###### Windows
 
@@ -269,11 +234,11 @@ python main.py
 - 百度網盤: https://pan.baidu.com/s/11h3Q6tsDtjQKTjUu3sc5cA?pwd=xjs9
 - 夸克網盤：https://pan.quark.cn/s/3ee3d991d64b
 
-模型下載後解壓縮，整個目錄放到 `.\MoneyPrinterTurbo\models` 裡面，
-最終的檔案路徑應該是這樣: `.\MoneyPrinterTurbo\models\whisper-large-v3`
+模型下載後解壓縮，整個目錄放到 `.\Text2Video-ForkyEdition\models` 裡面，
+最終的檔案路徑應該是這樣: `.\Text2Video-ForkyEdition\models\whisper-large-v3`
 
 ```
-MoneyPrinterTurbo
+Text2Video-ForkyEdition
   ├─models
   │   └─whisper-large-v3
   │          config.json

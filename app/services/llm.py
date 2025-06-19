@@ -29,11 +29,7 @@ def _generate_response(prompt: str) -> str:
             )
         else:
             api_version = ""  # for azure
-            if llm_provider == "moonshot":
-                api_key = config.app.get("moonshot_api_key")
-                model_name = config.app.get("moonshot_model_name")
-                base_url = "https://api.moonshot.cn/v1"
-            elif llm_provider == "ollama":
+            if llm_provider == "ollama":
                 # api_key = config.app.get("openai_api_key")
                 api_key = "ollama"  # any string works but you are required to have one
                 model_name = config.app.get("ollama_model_name")
@@ -59,21 +55,11 @@ def _generate_response(prompt: str) -> str:
                 api_key = config.app.get("gemini_api_key")
                 model_name = config.app.get("gemini_model_name")
                 base_url = "***"
-            elif llm_provider == "qwen":
-                api_key = config.app.get("qwen_api_key")
-                model_name = config.app.get("qwen_model_name")
-                base_url = "***"
             elif llm_provider == "cloudflare":
                 api_key = config.app.get("cloudflare_api_key")
                 model_name = config.app.get("cloudflare_model_name")
                 account_id = config.app.get("cloudflare_account_id")
                 base_url = "***"
-            elif llm_provider == "deepseek":
-                api_key = config.app.get("deepseek_api_key")
-                model_name = config.app.get("deepseek_model_name")
-                base_url = config.app.get("deepseek_base_url")
-                if not base_url:
-                    base_url = "https://api.deepseek.com"
             elif llm_provider == "ernie":
                 api_key = config.app.get("ernie_api_key")
                 secret_key = config.app.get("ernie_secret_key")
@@ -124,6 +110,12 @@ def _generate_response(prompt: str) -> str:
                     raise Exception(f"[{llm_provider}] request failed: {str(e)}")
                 except Exception as e:
                     raise Exception(f"[{llm_provider}] error: {str(e)}")
+            elif llm_provider == "rap":
+                api_key = config.app.get("rap_api_key")
+                model_name = config.app.get("rap_model_name")
+                base_url = config.app.get("rap_base_url")
+                if not base_url:
+                    base_url = "https://portal.genai.nchc.org.tw/api/v1"
 
             if llm_provider not in ["pollinations", "ollama"]:  # Skip validation for providers that don't require API key
                 if not api_key:
@@ -138,31 +130,6 @@ def _generate_response(prompt: str) -> str:
                     raise ValueError(
                         f"{llm_provider}: base_url is not set, please set it in the config.toml file."
                     )
-
-            if llm_provider == "qwen":
-                import dashscope
-                from dashscope.api_entities.dashscope_response import GenerationResponse
-
-                dashscope.api_key = api_key
-                response = dashscope.Generation.call(
-                    model=model_name, messages=[{"role": "user", "content": prompt}]
-                )
-                if response:
-                    if isinstance(response, GenerationResponse):
-                        status_code = response.status_code
-                        if status_code != 200:
-                            raise Exception(
-                                f'[{llm_provider}] returned an error response: "{response}"'
-                            )
-
-                        content = response["output"]["text"]
-                        return content.replace("\n", "")
-                    else:
-                        raise Exception(
-                            f'[{llm_provider}] returned an invalid response: "{response}"'
-                        )
-                else:
-                    raise Exception(f"[{llm_provider}] returned an empty response")
 
             if llm_provider == "gemini":
                 import google.generativeai as genai
@@ -264,27 +231,31 @@ def _generate_response(prompt: str) -> str:
                     api_version=api_version,
                     azure_endpoint=base_url,
                 )
-            else:
+            elif llm_provider in ["rap", "openai", "ollama", "oneapi"]:
                 client = OpenAI(
                     api_key=api_key,
                     base_url=base_url,
                 )
+            else:
+                # 對於其他特殊提供商，直接返回，避免進入通用OpenAI處理
+                pass
 
-            response = client.chat.completions.create(
-                model=model_name, messages=[{"role": "user", "content": prompt}]
-            )
-            if response:
-                if isinstance(response, ChatCompletion):
-                    content = response.choices[0].message.content
+            if llm_provider in ["azure", "rap", "openai", "ollama", "oneapi"]:
+                response = client.chat.completions.create(
+                    model=model_name, messages=[{"role": "user", "content": prompt}]
+                )
+                if response:
+                    if isinstance(response, ChatCompletion):
+                        content = response.choices[0].message.content
+                    else:
+                        raise Exception(
+                            f'[{llm_provider}] returned an invalid response: "{response}", please check your network '
+                            f"connection and try again."
+                        )
                 else:
                     raise Exception(
-                        f'[{llm_provider}] returned an invalid response: "{response}", please check your network '
-                        f"connection and try again."
+                        f"[{llm_provider}] returned an empty response, please check your network connection and try again."
                     )
-            else:
-                raise Exception(
-                    f"[{llm_provider}] returned an empty response, please check your network connection and try again."
-                )
 
         return content.replace("\n", "")
     except Exception as e:
