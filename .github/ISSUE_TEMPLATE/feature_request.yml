@@ -1,0 +1,29 @@
+name: ✨ 增加功能 | Feature Request
+description: 為此專案提出一個新想法或建議 | Suggest a new idea for this project
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: textarea
+    attributes:
+      label: 需求描述 | Problem Statement
+      description: |
+        請描述您希望解決的問題或需求
+        Please describe the problem you want to solve
+      placeholder: |
+        我在使用過程中遇到了...
+        I encountered... when using this project
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: 建議的解決方案 | Proposed Solution
+      description: |
+        請描述您認為可行的解決方案或實作方式
+        Please describe your suggested solution or implementation
+      placeholder: |
+        可以考慮新增...功能來解決這個問題
+        Consider adding... feature to address this issue
+    validations:
+      required: true

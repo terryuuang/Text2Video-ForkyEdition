@@ -1,0 +1,28 @@
+.DS_Store
+/config.toml
+/storage/
+/.idea/
+/app/services/__pycache__
+/app/__pycache__/
+/app/config/__pycache__/
+/app/models/__pycache__/
+/app/utils/__pycache__/
+/*/__pycache__/*
+.vscode
+/**/.streamlit
+__pycache__
+logs/
+
+node_modules
+# VuePress 預設暫存檔案目錄
+/sites/docs/.vuepress/.temp
+# VuePress 預設快取目錄
+/sites/docs/.vuepress/.cache
+# VuePress 預設建置產生的靜態檔案目錄
+/sites/docs/.vuepress/dist
+# 模型目錄
+/models/
+./models/*
+
+venv/
+.venv
