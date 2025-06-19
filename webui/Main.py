@@ -32,8 +32,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="auto",
     menu_items={
-        "Report a bug": "https://github.com/terryuuang/MoneyPrinterTurbo/issues",
-        "About": "# MoneyPrinterTurbo\n只要提供一個主題或關鍵字，系統就會自動產生影片腳本、素材、字幕與背景音樂，並合成高畫質短影片。\n\nhttps://github.com/terryuuang/MoneyPrinterTurbo",
+        "Report a bug": "https://github.com/terryuuang/Text2Video-ForkyEdition/issues",
+        "About": "# MoneyPrinterTurbo\n只要提供一個主題或關鍵字，系統就會自動產生影片腳本、素材、字幕與背景音樂，並合成高畫質短影片。\n\nhttps://github.com/terryuuang/Text2Video-ForkyEdition",
     },
 )
 

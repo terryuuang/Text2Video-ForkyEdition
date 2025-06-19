@@ -2,10 +2,10 @@
 <h1 align="center">MoneyPrinterTurbo 💸</h1>
 
 <p align="center">
-  <a href="https://github.com/terryuuang/MoneyPrinterTurbo/stargazers"><img src="https://img.shields.io/github/stars/terryuuang/MoneyPrinterTurbo.svg?style=for-the-badge" alt="Stargazers"></a>
-  <a href="https://github.com/terryuuang/MoneyPrinterTurbo/issues"><img src="https://img.shields.io/github/issues/terryuuang/MoneyPrinterTurbo.svg?style=for-the-badge" alt="Issues"></a>
-  <a href="https://github.com/terryuuang/MoneyPrinterTurbo/network/members"><img src="https://img.shields.io/github/forks/terryuuang/MoneyPrinterTurbo.svg?style=for-the-badge" alt="Forks"></a>
-  <a href="https://github.com/terryuuang/MoneyPrinterTurbo/blob/main/LICENSE"><img src="https://img.shields.io/github/license/terryuuang/MoneyPrinterTurbo.svg?style=for-the-badge" alt="License"></a>
+  <a href="https://github.com/terryuuang/Text2Video-ForkyEdition/stargazers"><img src="https://img.shields.io/github/stars/terryuuang/Text2Video-ForkyEdition.svg?style=for-the-badge" alt="Stargazers"></a>
+  <a href="https://github.com/terryuuang/Text2Video-ForkyEdition/issues"><img src="https://img.shields.io/github/issues/terryuuang/Text2Video-ForkyEdition.svg?style=for-the-badge" alt="Issues"></a>
+  <a href="https://github.com/terryuuang/Text2Video-ForkyEdition/network/members"><img src="https://img.shields.io/github/forks/terryuuang/Text2Video-ForkyEdition.svg?style=for-the-badge" alt="Forks"></a>
+  <a href="https://github.com/terryuuang/Text2Video-ForkyEdition/blob/main/LICENSE"><img src="https://img.shields.io/github/license/terryuuang/Text2Video-ForkyEdition.svg?style=for-the-badge" alt="License"></a>
 </p>
 
 <h3>📢 關於此專案</h3>
@@ -80,9 +80,9 @@
 </thead>
 <tbody>
 <tr>
-<td align="center"><video src="https://github.com/terryuuang/MoneyPrinterTurbo/assets/4928832/a84d33d5-27a2-4aba-8fd0-9fb2bd91c6a6"></video></td>
-<td align="center"><video src="https://github.com/terryuuang/MoneyPrinterTurbo/assets/4928832/af2f3b0b-002e-49fe-b161-18ba91c055e8"></video></td>
-<td align="center"><video src="https://github.com/terryuuang/MoneyPrinterTurbo/assets/4928832/112c9564-d52b-4472-99ad-970b75f66476"></video></td>
+<td align="center"><video src="https://github.com/terryuuang/Text2Video-ForkyEdition/assets/4928832/a84d33d5-27a2-4aba-8fd0-9fb2bd91c6a6"></video></td>
+<td align="center"><video src="https://github.com/terryuuang/Text2Video-ForkyEdition/assets/4928832/af2f3b0b-002e-49fe-b161-18ba91c055e8"></video></td>
+<td align="center"><video src="https://github.com/terryuuang/Text2Video-ForkyEdition/assets/4928832/112c9564-d52b-4472-99ad-970b75f66476"></video></td>
 </tr>
 </tbody>
 </table>
@@ -98,8 +98,8 @@
 </thead>
 <tbody>
 <tr>
-<td align="center"><video src="https://github.com/terryuuang/MoneyPrinterTurbo/assets/4928832/346ebb15-c55f-47a9-a653-114f08bb8073"></video></td>
-<td align="center"><video src="https://github.com/terryuuang/MoneyPrinterTurbo/assets/4928832/271f2fae-8283-44a0-8aa0-0ed8f9a6fa87"></video></td>
+<td align="center"><video src="https://github.com/terryuuang/Text2Video-ForkyEdition/assets/4928832/346ebb15-c55f-47a9-a653-114f08bb8073"></video></td>
+<td align="center"><video src="https://github.com/terryuuang/Text2Video-ForkyEdition/assets/4928832/271f2fae-8283-44a0-8aa0-0ed8f9a6fa87"></video></td>
 </tr>
 </tbody>
 </table>
@@ -115,7 +115,7 @@
 ### 在 Google Colab 中執行
 免去本機環境配置，點擊直接在 Google Colab 中快速體驗 MoneyPrinterTurbo
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/terryuuang/MoneyPrinterTurbo/blob/main/docs/MoneyPrinterTurbo.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/terryuuang/Text2Video-ForkyEdition/blob/main/docs/MoneyPrinterTurbo.ipynb)
 
 
 ### Windows一鍵啟動包
@@ -139,7 +139,7 @@
 #### ① 複製程式碼
 
 ```shell
-git clone https://github.com/terryuuang/MoneyPrinterTurbo.git
+git clone https://github.com/terryuuang/Text2Video-ForkyEdition.git
 ```
 
 #### ② 修改配置檔案（可選，建議啟動後也可以在 WebUI 裡面配置）
@@ -186,7 +186,7 @@ docker-compose up
 建議使用 [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) 建立 python 虛擬環境
 
 ```shell
-git clone https://github.com/terryuuang/MoneyPrinterTurbo.git
+git clone https://github.com/terryuuang/Text2Video-ForkyEdition.git
 cd MoneyPrinterTurbo
 conda create -n MoneyPrinterTurbo python=3.11
 conda activate MoneyPrinterTurbo
@@ -364,8 +364,8 @@ Trying to load the model directly from the local cache, if it exists.
 
 ## 意見回饋 📢
 
-- 可以提交 [issue](https://github.com/terryuuang/MoneyPrinterTurbo/issues)
-  或者 [pull request](https://github.com/terryuuang/MoneyPrinterTurbo/pulls)。
+- 可以提交 [issue](https://github.com/terryuuang/Text2Video-ForkyEdition/issues)
+  或者 [pull request](https://github.com/terryuuang/Text2Video-ForkyEdition/pulls)。
 
 ## 授權條款 📝
 
@@ -373,4 +373,4 @@ Trying to load the model directly from the local cache, if it exists.
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=terryuuang/MoneyPrinterTurbo&type=Date)](https://star-history.com/#terryuuang/MoneyPrinterTurbo&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=terryuuang/Text2Video-ForkyEdition&type=Date)](https://star-history.com/#terryuuang/Text2Video-ForkyEdition&Date)
