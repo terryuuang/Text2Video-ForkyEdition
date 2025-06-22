@@ -468,12 +468,23 @@ with left_panel:
         )
         params.video_language = video_languages[selected_index][1]
 
+        # 添加自定義prompt輸入框
+        custom_script_prompt = st.text_area(
+            tr("Custom Script Prompt"),
+            value="",
+            height=100,
+            key="custom_script_prompt_input",
+            placeholder="Enter your custom prompt here. Leave it blank to use the default prompt."
+        )
+
         if st.button(
             tr("Generate Video Script and Keywords"), key="auto_generate_script"
         ):
             with st.spinner(tr("Generating Video Script and Keywords")):
                 script = llm.generate_script(
-                    video_subject=params.video_subject, language=params.video_language
+                    video_subject=params.video_subject, 
+                    language=params.video_language,
+                    custom_prompt=custom_script_prompt.strip() if custom_script_prompt.strip() else None
                 )
                 terms = llm.generate_terms(params.video_subject, script)
                 if "Error: " in script:

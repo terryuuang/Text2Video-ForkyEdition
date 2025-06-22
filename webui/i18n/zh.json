@@ -12,6 +12,7 @@
     "Video Script Settings": "**腳本設定**",
     "Video Subject": "影片主題（給定一個關鍵字，:red[AI自動產生]影片腳本）",
     "Script Language": "產生影片腳本的語言（一般情況下AI會自動依據你輸入的主題語言輸出）",
+    "Custom Script Prompt": "自定義腳本Prompt（:blue[可選填，留空則使用預設Prompt]）",
     "Generate Video Script and Keywords": "點擊使用AI根據**主題**產生【影片腳本】與【影片關鍵字】",
     "Auto Detect": "自動偵測",
     "Video Script": "影片腳本（:blue[①可不填，使用AI產生  ②合理使用標點斷句，有助於產生字幕]）",

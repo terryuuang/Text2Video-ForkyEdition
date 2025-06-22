@@ -263,9 +263,19 @@ def _generate_response(prompt: str) -> str:
 
 
 def generate_script(
-    video_subject: str, language: str = "", paragraph_number: int = 1
+    video_subject: str, language: str = "", paragraph_number: int = 1, custom_prompt: str = None
 ) -> str:
-    prompt = f"""
+    if custom_prompt:
+        # 使用使用者自定義的prompt，但需要確保包含必要的變數
+        prompt = custom_prompt
+        # 替換變數（如果使用者在自定義prompt中使用了這些變數）
+        prompt = prompt.replace("{video_subject}", video_subject)
+        prompt = prompt.replace("{paragraph_number}", str(paragraph_number))
+        if language:
+            prompt = prompt.replace("{language}", language)
+    else:
+        # 使用預設的prompt
+        prompt = f"""
 # Role: Video Script Generator
 
 ## Goals:
@@ -285,8 +295,8 @@ Generate a script for a video, depending on the subject of the video.
 - video subject: {video_subject}
 - number of paragraphs: {paragraph_number}
 """.strip()
-    if language:
-        prompt += f"\n- language: {language}"
+        if language:
+            prompt += f"\n- language: {language}"
 
     final_script = ""
     logger.info(f"subject: {video_subject}")
