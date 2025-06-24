@@ -29,7 +29,7 @@ pixabay_api_keys = ["YOUR_API_KEY"]
 #   cloudflare  (Cloudflare)
 #   ernie       (文心一言)
 #   pollinations (Pollinations)
-llm_provider = "openai"
+llm_provider = "rap"
 
 ########## Pollinations AI Settings
 # Visit https://pollinations.ai/ to learn more
@@ -39,6 +39,11 @@ pollinations_api_key = ""
 pollinations_base_url = "https://pollinations.ai/api/v1"
 # Default model for text generation
 pollinations_model_name = "openai-fast"
+
+######### RAP Settings
+rap_model_name = "Llama-4-Maverick-17B-128E-Instruct-FP8"
+rap_base_url = "https://portal.genai.nchc.org.tw/api/v1"
+rap_api_key = ""
 
 ########## Ollama Settings
 # No need to set it unless you want to use your own proxy
