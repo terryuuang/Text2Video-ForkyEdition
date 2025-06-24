@@ -12,59 +12,18 @@
 <p>本專案基於 <a href="https://github.com/harry0703/MoneyPrinterTurbo">harry0703/MoneyPrinterTurbo</a> 進行 Fork 開發</p>
 <p><strong>主要改進：</strong></p>
 <ul style="text-align: left; display: inline-block;">
-  <li>🌏 <strong>完整繁體中文化</strong> - 介面與文件全面繁體中文化</li>
-  <li>🔧 <strong>問題修正</strong> - 修復原版本中的已知問題</li>
-  <li>✨ <strong>功能優化</strong> - 針對繁體中文使用者體驗進行優化</li>
+  🌏 <strong>完整繁體中文化</strong> - 介面與文件全面繁體中文化
+  🔧 <strong>問題修正</strong> - 修復原版本中的已知問題
+  ✨ <strong>功能優化</strong> - 針對繁體中文使用者體驗進行優化
 </ul>
 <br>
 
-<h3>繁體中文 | <a href="README-en.md">English</a></h3>
 <div align="center">
   <a href="https://trendshift.io/repositories/8731" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8731" alt="terryuuang%2FMoneyPrinterTurbo | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 <br>
 只需提供一個影片 <b>主題</b> 或 <b>關鍵字</b> ，就可以全自動產生影片文案、影片素材、影片字幕、影片背景音樂，然後合成一個高畫質的短影片。
 <br>
-
-<h4>Web介面</h4>
-
-![](docs/webui.jpg)
-
-<h4>API介面</h4>
-
-![](docs/api.jpg)
-
-</div>
-
-
-## 功能特性 🎯
-
-- [x] **繁體中文優化版本** - 基於原專案進行繁體中文化並修復相關問題
-- [x] 完整的 **MVC架構**，程式碼 **結構清晰**，易於維護，支援 `API` 和 `Web介面`
-- [x] 支援影片文案 **AI自動產生**，也可以**自訂文案**
-- [x] 支援多種 **高畫質影片** 尺寸
-    - [x] 直式 9:16，`1080x1920`
-    - [x] 橫式 16:9，`1920x1080`
-- [x] 支援 **批次影片產生**，可以一次產生多個影片，然後選擇一個最滿意的
-- [x] 支援 **影片片段時長** 設定，方便調節素材切換頻率
-- [x] 支援 **中文** 和 **英文** 影片文案
-- [x] 支援 **多種語音** 合成，可 **即時試聽** 效果
-- [x] 支援 **字幕產生**，可以調整 `字型`、`位置`、`顏色`、`大小`，同時支援`字幕描邊`設定
-- [x] 支援 **背景音樂**，隨機或者指定音樂檔案，可設定`背景音樂音量`
-- [x] 影片素材來源 **高畫質**，而且 **無版權**，也可以使用自己的 **本機素材**
-- [x] 支援 **OpenAI**、**Moonshot**、**Azure**、**gpt4free**、**one-api**、**通義千問**、**Google Gemini**、**Ollama**、**DeepSeek**、 **文心一言**, **Pollinations** 等多種模型接入
-    - 中國使用者建議使用 **DeepSeek** 或 **Moonshot** 作為大模型提供商（國內可直接存取，不需要VPN。註冊就送額度，基本夠用）
-
-
-### 後期計畫 📅
-
-- [ ] GPT-SoVITS 配音支援
-- [ ] 最佳化語音合成，利用大模型，使其合成的聲音，更加自然，情緒更加豐富
-- [ ] 增加影片轉場效果，使其看起來更加的流暢
-- [ ] 增加更多影片素材來源，最佳化影片素材和文案的匹配度
-- [ ] 增加影片長度選項：短、中、長
-- [ ] 支援更多的語音合成服務商，比如 OpenAI TTS
-- [ ] 自動上傳到YouTube平台
 
 ## 影片示範 📺
 
@@ -117,17 +76,6 @@
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/terryuuang/Text2Video-ForkyEdition/blob/main/docs/MoneyPrinterTurbo.ipynb)
 
-
-### Windows一鍵啟動包
-
-下載一鍵啟動包，解壓縮直接使用（路徑不要有 **中文**、**特殊字元**、**空格**）
-
-- 百度網盤（v1.2.6）: https://pan.baidu.com/s/1wg0UaIyXpO3SqIpaq790SQ?pwd=sbqx 提取碼: sbqx
-- Google Drive (v1.2.6): https://drive.google.com/file/d/1HsbzfT7XunkrCrHw5ncUjFX8XX4zAuUh/view?usp=sharing
-
-下載後，建議先**雙擊執行** `update.bat` 更新到**最新程式碼**，然後雙擊 `start.bat` 啟動
-
-啟動後，會自動開啟瀏覽器（如果開啟是空白，建議換成 **Chrome** 或者 **Edge** 開啟）
 
 ## 安裝部署 📥
 
@@ -299,21 +247,6 @@ ulimit -n
 ulimit -n 10240
 ```
 
-### ❓Whisper 模型下載失敗，出現如下錯誤
-
-LocalEntryNotfoundEror: Cannot find an appropriate cached snapshotfolderfor the specified revision on the local disk and
-outgoing trafic has been disabled.
-To enablerepo look-ups and downloads online, pass 'local files only=False' as input.
-
-或者
-
-An error occured while synchronizing the model Systran/faster-whisper-large-v3 from the Hugging Face Hub:
-An error happened while trying to locate the files on the Hub and we cannot find the appropriate snapshot folder for the
-specified revision on the local disk. Please check your internet connection and try again.
-Trying to load the model directly from the local cache, if it exists.
-
-解決方法：[點擊查看如何從網盤手動下載模型](#字幕產生-)
-
 ## 更新記錄 📝
 
 ### 繁體中文版本更新
@@ -335,7 +268,3 @@ Trying to load the model directly from the local cache, if it exists.
 ## 授權條款 📝
 
 點擊查看 [`LICENSE`](LICENSE) 檔案
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=terryuuang/Text2Video-ForkyEdition&type=Date)](https://star-history.com/#terryuuang/Text2Video-ForkyEdition&Date)
